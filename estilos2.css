@@ -1,0 +1,1010 @@
+	@import url('fontello.css');
+
+*{
+    margin:0;
+    padding: 0;
+    font-family: verdana;
+}
+
+	body{
+		margin: 0;
+		padding: 0;
+		padding-top: 95px;
+		
+	}
+
+/*===============================================================*/
+   header {
+		width: 100%;
+		height: 102px;
+		color: #000;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index:1000;
+        background-color:#fff;
+        box-sizing: border-box;
+        border-bottom: 2px solid #333;
+       
+        -webkit-transition:height .3s;
+        -moz-transition:height .3s;
+        -ms-transition:height .3s;
+        -o-transition:height .3s;
+	}
+.contenedor {
+		/*de toda la pagina*/
+		width: 98%;
+		margin: auto;
+	}
+
+	#logotipo {
+		float: left;
+		margin: 0px 20px;
+        background-image: url("./img/diseniador/Synergy2.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 220px;
+        height: 100px;
+        padding-top: 0px;
+        box-sizing: border-box;
+        transition: background-size .3s,padding-top .5s,height .5s;
+        -moz-transition: background-size .3s,padding-top .5s,height .5s;
+        -webkit-transition: background-size .3s,padding-top .5s,height .5s;
+        -ms-transition: background-size .3s,padding-top .5s,height .5s;
+        -o-transition: background-size .3s,padding-top .5s,height .5s;
+        
+        
+	}
+
+	/*#logotipo .logo {
+		margin: 0px;
+	}*/
+
+	header .contenedor {
+		display: table;
+		/*para limpiar los float y qie quede encajado en la caja*/
+	}
+
+#menu-bar{
+		display: none;
+	}
+
+	header label{
+		float: right;
+		font-size: 29px;
+		margin-top:35px;
+		cursor: pointer;
+        -moz-transition: font-size .5s, margin-top .5s;
+        -webkit-transition: font-size .5s, margin-top .5s;
+        -ms-transition: font-size .5s, margin-top .5s;
+        -o-transition: font-size .5s, margin-top .5s;
+	}
+
+	.menu{
+		box-sizing: border-box;
+        /*border: 3px solid;*/
+		position: absolute;
+	
+		right:0px;
+		width:100%;
+	/*	height:52vh;*/
+		background: rgba(225,225,225,0.9);
+		transition: all 0.3s;
+        transition:translateX(-100%) .5s; 
+		transform: translateX(-100%);
+	}
+
+	.menu a{
+       
+		font-family: Open Sans;
+		font-size: 20px;
+		text-align: center;
+		display: block;
+		color: #000;
+		height: 45px;
+		text-decoration: none;
+		padding: 15px 0px;
+		
+	}
+
+	.menu a:hover{
+		color: #333;     
+	}
+
+	#menu-bar:checked ~ .menu{
+		transform: translateX(0%);
+	}
+
+	@media(min-width: 1024px){
+
+		
+        .menu{
+			position: static;/*como esta en absolute, para que se valla se usa static*/
+			width: auto;
+			height: auto;
+			transform: translateX(0%);
+			float: right;
+			display: flex;
+			margin-top: 27px;
+            margin-left: 5px;
+			background: none;
+		}
+		
+		.menu a{
+			font-size: 21px;
+			/*border:3px solid #333;*/
+			box-sizing: border-box;
+            margin: 0px 23px;
+            
+		}
+
+		.menu a:hover{
+			color: #333;
+			transition: all .5s;
+			background: none;
+		}
+
+		header label{
+			display: none;
+		}
+	}
+@media (max-width: 1023px){
+	body{
+		padding-top: 80px;
+	}
+	
+	header{
+		
+		height:89px;
+	}
+	.menu{
+		
+		height: auto;
+		top:88px;
+		
+	  }
+	header label{
+		font-size: 29px;
+		margin-top:27px; 
+	  }
+	#logotipo{
+		  width:200px ;
+		  height:85px ;
+	  }
+}
+@media (max-width: 768px){
+	header{
+		
+		height:89px;
+	}
+	.menu{
+		  top:89px;
+	  }
+	header label{
+		font-size: 29px;
+		margin-top:27px; 
+	  }
+	#logotipo{
+		  width:200px ;
+		  height:85px ;
+	  }
+}
+    /*-----*/
+  @media (max-width: 480px){
+	  header{
+		  
+		  height:87px;
+	  }
+	  .menu{
+		  top:87px;
+	  }
+	  #logotipo{
+		  width:200px ;
+		  height:85px ;
+		  margin: 0px 0px;
+	  }
+	  header label{
+		font-size: 29px;
+		margin-top:27px; 
+      
+	  }
+  }
+/*===============================================================*/
+
+#slider {
+    
+	/* Es necesario darle un alto a el slide */
+	height: 100vh;
+
+	/* Evitamos que se muestren los objetos que sobresalen del div */
+	overflow: hidden;
+
+	/* Necesario para darle un ancho al div, en este caso es el 100% de ancho del body */
+	width: 100%;
+}
+
+
+#slider-container {
+	/* Necesario para poder utilizar las propiedades de Flexbox */
+	display: flex;
+
+	/* Le decimos que ocupe el 100% del contenedor padre */
+	height: 100%;
+
+	/* Le damos una transición para que sea más suave
+	(margin es la propiedad a animar y es la que utilizamos para que el slide se mueva) */
+	transition: margin 0.5s ease;
+
+	/* El ancho del contenedor va a ser 100% x cantidad de slides */
+	width: 700%;
+}
+
+.slide {
+	/* Le decimos que cada slide ocupe 1 porción del ancho del padre */
+	flex: 1;
+}
+
+/* 
+
+Este CSS simplemente le agrega la foto de fondo, tamaño y posición a cada div del slider
+
+*/
+
+
+#slide1 {
+	background-image: url('/img/ds.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+#slide2 {
+	background-image: url('/img/2.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+#slide3 {
+	background-image: url('/img/3.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+#slide4 {
+	background-image: url('/img/4.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+#slide5 {
+	background-image: url('/img/5.jpg');
+	background-position: center;
+	background-size: cover;
+}
+#slide6 {
+	background-image: url('/img/6.jpg');
+	background-position: center;
+	background-size: cover;
+}
+#slide7 {
+	background-image: url('/img/7.jpg');
+	background-position: center;
+	background-size: cover;
+}
+/*----------------------------------------------------------------*/
+.banner{
+/*	position: relative;*/
+   /* height: 100vh;*/
+    width: 100%;
+    box-sizing: border-box;
+    border: 3px solid #BFBFBF;
+    background-image: url('/img/diseniador/013.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner .contenedor{
+    display: flex;
+    flex-wrap: wrap;    
+	/*position: absolute;*/
+	/*top:50%;
+	left:50%;
+	transform: translateX(-50%) translateY(-50%);*/
+	color: #000;
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    padding: 15px;
+    width:80%;
+    margin: 76px auto;
+    padding: 45px;
+    
+}
+
+.banner h2{
+	font-size: 30px;
+    font-family: Open Sans;
+    font-weight: bold;
+    text-shadow: 2px 0px 3px #fff;
+    color: #000;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 13px;
+}
+
+.banner p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 23px;
+    text-shadow: 2px 0px 3px #fff;
+    font-family: Open Sans;
+    /*font-weight: bold;*/
+    color: #000;
+    text-align: center;
+    
+}
+
+/*--------------------------------------------------------*/
+@media (max-width: 480px){
+	.banner .contenedor{
+		width: 66%;
+	}
+	.banner h2{font-size: 29px;}
+	.banner p{font-size: 20px;}
+}
+/*==========================================Somos Venture===============================*/
+.somos-venture{
+    width: 100%;
+    margin:auto;
+    text-align: center;
+    padding:30px 0px; 
+  /*  box-sizing: border-box;
+    border: 3px solid #333;*/
+    justify-content: center;
+
+}
+.interno{
+    display: flex;
+    flex-wrap: wrap;
+    margin:auto;
+    width: 90%;
+    justify-content: center;
+   /* box-sizing: border-box;
+    border: 3px solid #333;*/
+    
+}
+.interno .icono{
+     width: 150px;
+     height: 150px;
+  /*   box-sizing: border-box;
+     border: 3px solid #333;*/
+     margin: auto;
+     
+}
+
+.formacion, .grupo, .soporte, .inversion{
+    width: 400px;
+    height: 310px;
+    margin: 30px;
+ /*   box-sizing: border-box;
+    border: 3px solid #333;*/
+}
+.formacion .icono{
+    background-image: url("/img/Formaci%C3%B3n.png");
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.grupo .icono{
+    background-image: url("/img/Training.png");
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.soporte .icono{
+    background-image: url("/img/Soporte.png");
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.inversion .icono{
+    background-image: url("/img/Inversi%C3%B3n.png");
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.somos-venture h1{
+ /*   box-sizing: border-box;
+    border: 3px solid #333;*/
+    font-family: Open Sans;
+    font-size: 38px;
+    font-weight: bold;
+    margin: 30px 0px;
+}
+
+.interno h3{
+  /*  box-sizing: border-box;
+    border: 3px solid #333;*/
+    margin: 9px 0px;
+    font-family: Open Sans;
+    font-size: 20px;
+    
+}
+
+.interno p{
+    font-family: Open Sans;
+    font-size: 18px;
+}
+@media (max-width: 480px){
+	.somos-venture{padding:25px 0px;}
+	.somos-venture h1{
+	   font-size: 30px;
+		margin: 23px 0px;
+	}
+	.formacion, .grupo, .soporte, .inversion{
+		margin: 37px;
+	}
+	
+}
+
+/*------------------------------------------Separador------------------------------*/
+
+
+   hr {
+		 	
+            border: 0; 
+		 	height: 2px;
+		 	text-align: center; 
+		 	background: -moz-linear-gradient(right, #fff, #878585, #fff);
+		 	width: 50%;
+		    margin: auto;
+		 	}
+
+/*--------------------------------------INTEGRANTES--------------------------------*/
+
+.integrantes{
+    width: 100%;
+    margin:auto;
+ /*   background-color: aquamarine;*/
+    text-align: center;
+    padding:30px 0px; 
+    box-sizing: border-box;
+   /* border: 3px solid #333;*/
+    justify-content: center;
+}
+
+.integrantes h2{
+    width: 100%;
+    text-align: center;
+    font-family:Open Sans;
+    font-size: 38px;
+    font-weight: bold;
+    padding: 50px 0px;
+    
+}
+
+.co-fund{
+    display: flex;
+    flex-wrap: wrap;
+    margin:auto;
+    width: 100%;
+    justify-content: center;
+}
+.co-fund h3{
+    padding-top:15px;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 21px;
+}
+.co-fund p{
+    padding: 4px 0;
+}
+
+#gustavo,#daniel{
+    width: 248px;
+    height: 330px;
+    margin: 0 20px;
+} 
+#gustavo .imagen{
+    width: 248px;
+    height: 248px;
+    background-image: url("/img/businessman.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 95%;
+    
+}
+#daniel .imagen{
+    width: 248px;
+    height: 248px;
+    background-image: url("/img/businessman.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+.soporteti{
+    display: none;
+    flex-wrap: wrap;
+    margin:auto;
+    width: 70%;
+    justify-content: center;
+}
+.soporteti h2{
+    padding-bottom: 2px
+}
+.soporteti h3{
+    padding-top:15px;
+}
+.soporteti p{
+    padding: 4px 0;
+}
+
+
+#tec{
+     width: 248px;
+     height: 330px;
+     margin:38px 40px;
+}
+#tec h3{
+     font-family: 'Oxygen', sans-serif;
+    font-size: 21px;
+}
+
+#tec .imagen{
+    width: 248px;
+    height: 248px;
+    background-image: url("/img/male-silhouette-edit.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 98%;
+    
+    
+}
+/*----------------------------------------------------------------------------------*/
+.hrd {
+		 	
+            border: 0; 
+		 	height: 2px;
+		 	text-align: center; 
+		 	background: -moz-linear-gradient(right, #fff, #878585, #fff);
+		 	width: 50%;
+            justify-content:center;
+		    margin:auto;
+            
+		 	}
+/*--------------------------------------Contacto------------------------------------*/
+.contacto{
+    width: 100%;
+    margin: auto;
+    /*background-color: aquamarine;*/
+    /*text-align: center;*/
+    padding:30px 0px; 
+}
+
+form {
+		/*background: rgba(211, 211, 211, 0.7);*/
+		box-sizing: border-box;
+		margin: auto;
+		padding: 10px 20px;
+		width: 500px;
+	}
+
+form p{
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.res {
+		font-family: Open Sans;
+		font-weight: bold;
+		
+		color: #333;
+		text-align: center;
+		margin: 0;
+		font-size: 40px;
+		/*font-stretch: 5px;*/
+	    margin-top: 55px;
+		margin-bottom: 20px;
+	}
+
+.titulo {
+		margin-bottom:5px;
+		font-family: Open Sans;
+		
+		font-size: 20px;
+		color: #3b4045;
+	}
+
+input, textarea {
+		width: 100%;
+		margin-bottom: 8px;
+		padding: 7px;
+		box-sizing: border-box;
+		font-size: 17px;
+		border:1px solid #959595;
+        border-radius: 4px;
+	}
+    
+
+input[placeholder], textarea[placeholder] {
+		font-style: italic;
+	}
+
+textarea {
+		min-height: 100px;
+		max-height: 200px;
+		max-width: 100%;
+	}
+
+input[type="submit"] {
+		background: #333;
+		color: #fff;
+		width: 40%;
+		
+		/*Margen del boton sin borde*/
+		font-size: 19px;
+		font-family: Open Sans;
+		font-weight: 600;
+        margin:5px 30%;    
+        border-radius:5px;
+        box-shadow: 0px 3px 3px #333;
+        -moz-transition:background .5s;
+		
+	}
+
+	input[type="submit"]:hover {
+		/*cuando paso el cursor se modifica*/
+		background: #626D78;
+		cursor: pointer;
+		/*Modifico el cursor*/
+		color: #fff;
+	}
+
+@media (max-width: 480px){
+	form{
+		width: 350px;
+	}
+}
+/*--------------------------------Footer--------------------------------------*/
+
+footer{
+    bottom: 0;
+    width: 100%;
+    height: 7.5vh;
+    background: #000;
+    box-sizing: border-box;
+    padding:0 15px;
+    margin: 0;
+	box-shadow: 0px 5px 0px #333;
+	
+}
+
+.engra{
+    width: 28px;
+    height: 28px;
+    background-image: url("./img/settings-work-tool.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+    margin:11px;
+}
+
+.resenia p{
+    float: left;
+    color: #fff;
+    margin:14px 0px;
+    font-family: Open Sans;
+    font-size: 14px;
+        
+}
+@media (max-width: 768px){
+	footer{
+		height: 7.7vh;
+	}
+}
+@media (max-width: 480px){
+	footer{
+		height: 7.7vh;
+	}
+}
+
+
+#flecha-up{
+    z-index: 1000;
+    display: none;
+    position: fixed;
+    font-size:30px;
+    
+    /*background-image: url("./img/up-chevron.png");*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    box-sizing: border-box;
+    border: 3px solid #000;
+    width: 40px;
+    height: 40px;
+    bottom: 0;
+    right: 0;
+    cursor:pointer;
+    border-radius: 5px;
+    background-color:rgba(255,255,255,0.8);
+    
+}
+
+#tope{
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    
+}
+
+/*================================Emprendedor====================================*/
+/*---------------------------------------------------------------------*/
+#banner{
+    box-sizing: border-box;
+    width: 100%;
+    background-image: url('/img/vc.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   /* border: 3px solid #BFBFBF;*/
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#banner .contenedor2{
+    /*display: flex;
+    flex-wrap: wrap;
+    
+    margin:17% auto;
+    margin-top:15%; */
+	color: #000;
+    background: rgba(255,255,255,0.7);
+    border-radius: 15px;
+    max-width: 60%;
+    padding: 15px;
+    /*width: 60%;  */
+}
+
+#banner h2{
+    width: 100%;
+	font-size: 43px;
+    text-align: center;
+    font-family: Open Sans;
+    font-weight: bold;
+    text-shadow: 2px 0px 3px #fff;
+    color: #000;
+   
+}
+
+#banner p{
+    width: 100%;
+    margin-top: 10px;
+    font-size: 23px;
+    text-shadow: 2px 0px 3px #fff;
+    font-family: Open Sans;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+   
+}
+@media (max-width: 768px){
+	body{
+		padding-top: 83px;
+	} 
+}
+
+@media (max-width: 480px){
+	body{
+		padding-top: 85px;
+	} 
+	#banner{
+		height: auto;
+		padding: 95px 0px;
+	}
+	#banner h2{
+	   font-size: 30px;	
+	}
+	#banner p{
+	   font-size: 20px;
+	}
+	
+}
+
+
+/*========================================================*/
+.sit-act{
+    width: 100%;
+    box-sizing: border-box;
+    /* border: 3px solid #BFBFBF;*/
+}
+.cont1{
+    display: flex;
+    flex-wrap: wrap;
+    color: #fff;
+    background-color: #8A8888;
+    width: 60%;
+    margin: 90px auto;
+    padding: 25px;
+    box-shadow: 0px 5px 5px #333;
+    border-radius: 3px;
+}
+
+.cont1 h2{
+    font-family: Open Sans;
+    font-size: 35px;
+    color: #000;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.cont1 p{
+    width: 80%;
+    margin: 0px auto;
+    font-family: Open Sans;
+    font-size: 23px;
+    color: #fff;
+    text-align:center;
+    
+}
+.cont1 h3{
+    font-family: Open Sans;
+    font-size: 30px;
+    color: #000;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+@media (max-width: 480px){
+	.cont1 h2{
+		font-size: 30px;
+	}
+	.cont1 p{
+		font-size: 20px;
+	}
+	.cont1 h3{
+		 font-size: 30px;
+	}
+}
+
+/*========================================================*/
+/*===================================Faq===================================*/
+#bannerfaq{
+    box-sizing: border-box;
+    width: 100%;
+    background-image: url('/img/iu.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 3px solid #BFBFBF;
+    height: 100%;
+    
+   
+  
+   
+}
+
+
+#bannerfaq .contenedor2faq{
+    display: flex;
+    flex-wrap: wrap;
+    margin:17% auto;
+	/*position: absolute;*/
+	/*top:38%;
+	left:50%;
+	transform: translateX(-50%) translateY(-38%);*/
+	color: #000;
+    background: rgba(255,255,255,0.7);
+    border-radius: 15px;
+    padding: 15px;
+    width: 60%;  
+}
+
+#bannerfaq h2{
+    width: 100%;
+	font-size: 45px;
+    text-align: center;
+    font-family: Open Sans;
+    font-weight: bold;
+    text-shadow: 2px 0px 3px #fff;
+    color: #000;
+   
+}
+
+#bannerfaq p{
+    width: 100%;
+    margin-top: 10px;
+    font-size: 23px;
+    text-shadow: 2px 0px 3px #fff;
+    font-family: Open Sans;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+   
+}
+/*-------------------------------------------------------------------------------------*/
+    
+.contenedorfaq{
+    width: 100%;
+    margin:auto;
+    text-align: center;
+    
+    box-sizing: border-box;
+}
+  
+.contenedorfaq .texto{
+    box-sizing: border-box;
+    
+    display: flex;
+    flex-wrap: wrap;
+    margin:auto;
+    width: 100%;
+    text-align: left;
+    width: 80%;
+    padding: 60px 0px;
+}
+
+.texto #creamos{
+     
+    width: 80%;
+    font-family: Open Sans;
+    font-size: 30px;
+    padding-bottom: 15px ;
+    padding-top: 0px;
+}
+
+.texto h2{
+    width: 100%;
+    font-family: Open Sans;
+    font-size: 30px;
+    padding: 15px 0px;
+    
+}
+
+.texto ul{
+  
+    width: 100%;
+    padding: 5px 16px;
+}
+
+.texto ul li{
+    width: 100%;
+    font-family: Open Sans;
+    font-size: 19px;
+    padding: 5px 0px;
+    
+}
+
+.texto p{
+    
+    width: 100%;
+    font-family: Open Sans;
+    font-size: 19px;
+    padding: 5px 0px;
+    
+}
+
+/*---------------------------------------------------------------------*/
+/*========================================================*/
+
+/*Galeria*/
+
+
+
+
+
+
+
+
+ 
